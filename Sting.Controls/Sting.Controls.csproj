@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF2B2ECD-3848-4960-81E7-2C37C38E6283}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sting.Controls</RootNamespace>
+    <AssemblyName>Sting.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Azure Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Azure Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="DataGrid.xaml.cs">
+      <DependentUpon>DataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DelegateConverter.cs" />
+    <Compile Include="FreezableExtentions.cs" />
+    <Compile Include="ImmediateWindowsFormsHost.cs" />
+    <Compile Include="Panel\AttachedProperty.cs" />
+    <Compile Include="Panel\Behavior\IKeyboardInput.cs" />
+    <Compile Include="Panel\Behavior\IMouseInput.cs" />
+    <Compile Include="Panel\Behavior\Resizable.cs" />
+    <Compile Include="Panel\Behavior\TextInput.cs" />
+    <Compile Include="Panel\Canvas.cs" />
+    <Compile Include="Panel\CanvasLayouter.cs" />
+    <Compile Include="Panel\CircleLayouter.cs" />
+    <Compile Include="Panel\ColumnHeader.cs" />
+    <Compile Include="Panel\ContentBase.cs" />
+    <Compile Include="Panel\ContentHost.cs" />
+    <Compile Include="Panel\GridView.xaml.cs">
+      <DependentUpon>GridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\IAnimatableContent.cs" />
+    <Compile Include="Panel\IFrameworkElement.cs" />
+    <Compile Include="Panel\IMouseResizable.cs" />
+    <Compile Include="Panel\LayerLayouter.cs" />
+    <Compile Include="Panel\Indexer\Flat.cs" />
+    <Compile Include="Panel\Indexer\IndexerBase.cs" />
+    <Compile Include="Panel\Indexer\ZOrderd.cs" />
+    <Compile Include="Panel\Media\CachedSolidColorBrush.cs" />
+    <Compile Include="Panel\Media\EmptyBrush.cs" />
+    <Compile Include="Panel\Media\EmptyPen.cs" />
+    <Compile Include="Panel\Media\IBrush.cs" />
+    <Compile Include="Panel\Media\IPen.cs" />
+    <Compile Include="Panel\Media\ISolidColorBrush.cs" />
+    <Compile Include="Panel\Media\UncachedPen.cs" />
+    <Compile Include="Panel\Media\UncachedSolidColorBrush.cs" />
+    <Compile Include="Panel\Presenter\Basic.cs" />
+    <Compile Include="Panel\Presenter\PresenterBase.cs" />
+    <Compile Include="Panel\Presenter\QuadTree.cs" />
+    <Compile Include="Panel\QuadDoubleToRectConverter.cs" />
+    <Compile Include="Panel\GridLayouter.cs" />
+    <Compile Include="Panel\ILayouter.cs" />
+    <Compile Include="Panel\IUIElement.cs" />
+    <Compile Include="Panel\LayouterBase.cs" />
+    <Compile Include="Panel\FlexiblePanel.cs" />
+    <Compile Include="Panel\Shapes\Ellipse.cs" />
+    <Compile Include="Panel\Shapes\FanShape.cs" />
+    <Compile Include="Panel\Shapes\PieShape.cs" />
+    <Compile Include="Panel\Shapes\GeometryShapeBase.cs" />
+    <Compile Include="Panel\Shapes\Rectangle.cs" />
+    <Compile Include="Panel\Shapes\RoundedRectangle.cs" />
+    <Compile Include="Panel\Shapes\ShapeBase.cs" />
+    <Compile Include="Panel\StackLayouter.cs" />
+    <Compile Include="Panel\TextBlock.cs" />
+    <Compile Include="Panel\ControlBase.cs" />
+    <Compile Include="Panel\VirtualElementHost.cs" />
+    <Compile Include="Person.xaml.cs">
+      <DependentUpon>Person.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpreadSheet\SpreadSheet.cs" />
+    <Compile Include="TreeLinkListView.xaml.cs">
+      <DependentUpon>TreeLinkListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TreeLinkListViewItem.cs" />
+    <Compile Include="ZipCodeView.xaml.cs">
+      <DependentUpon>ZipCodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ZipCodeViewModel.cs" />
+    <Page Include="DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Panel\GridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Person.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SampleTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TreeLinkListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ZipCodeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="InstantProperty.ttinclude" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Panel\Primitives\" />
+    <Folder Include="Themes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sting\Sting.csproj">
+      <Project>{713ff5b3-19b8-4108-bc07-e9e1249e7595}</Project>
+      <Name>Sting</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

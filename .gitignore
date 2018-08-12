@@ -1,0 +1,9 @@
+.vs
+/packages
+/Benchmark/Sting.Benchmark/bin
+/Benchmark/Sting.Benchmark/obj
+/Sting/bin
+/Sting/obj
+/Sting/.vs
+/Sting.Controls/obj
+/Sting.Controls/bin

@@ -1,0 +1,4 @@
+﻿<local:TreeLinkListViewItem
+    xmlns:local="clr-namespace:Sting.Controls"
+    IsSelected="True">
+</local:TreeLinkListViewItem>

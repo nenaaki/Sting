@@ -1,0 +1,120 @@
+﻿<#@ IntelliSenseLanguage processor="tangibleT4Editor" language="C#" #>
+<#+
+void WriteHeader(){
+#>
+/*
+    自動生成コードです。編集してはいけません。
+*/
+using System;
+using System.Windows;
+using System.Windows.Media;
+<#+
+}	
+#>
+<#+
+void OpenNamespace(string name)
+{
+#>
+
+namespace <#= name #>
+{
+<#+
+}	
+#>
+<#+
+void OpenPartialClass(string name)
+{
+#>
+    partial class <#= name #>
+    {
+<#+
+}	
+#>
+<#+
+void WriteProperty(string typename, string valuename, string postProcess, string defaultValue, string summary)
+{
+    var fieldname = "_" + valuename.Substring(0,1).ToLower() + valuename.Substring(1);
+
+    var formattedDefaultValue = typename == "string" ? "\"" + defaultValue + "\"" : defaultValue;
+#>
+        private <#= typename #> <#= fieldname #><#= string.IsNullOrWhiteSpace(defaultValue)?string.Empty:" = " + formattedDefaultValue #>;
+        /// <summary>
+        /// <#= summary #>
+        /// </summary>
+        public <#= typename #> <#= valuename #>
+        {
+            get { return <#= fieldname #>; }
+            set
+            {
+                if( <#= fieldname #> == value )
+                    return;
+
+                <#= fieldname #> = value;
+<#+
+    if(!string.IsNullOrEmpty(postProcess))
+    {
+#>
+                <#= postProcess #>
+<#+
+    }	
+#>
+            }
+        }
+<#+
+}	
+#>
+<#+
+void WriteAttachedProperty(string typename, string valuename, string postProcess, string summary)
+{
+    var fieldname = "_" + valuename.Substring(0,1).ToLower() + valuename.Substring(1) + "Property";
+
+
+#>
+        /// <summary>
+        /// <#= summary #>の添付プロパティです。
+        /// </summary>
+        protected static AttachedProperty<<#=typename#>> <#= fieldname #> = new AttachedProperty<<#=typename#>>();
+
+        /// <summary>
+        /// <#= summary #>を取得します。
+        /// </summary>
+        public static <#= typename #> Get<#= valuename #>(ControlBase element)
+        {
+            return element.GetValue(<#= fieldname #>);
+        }
+
+        /// <summary>
+        /// <#= summary #>を設定します。
+        /// </summary>
+        public static void Set<#= valuename #>(ControlBase element, <#= typename #> val)
+        {
+            element.SetValue(<#= fieldname #>, val);
+<#+
+    if(!string.IsNullOrEmpty(postProcess))
+    {
+#>
+            <#= postProcess #>
+<#+
+    }	
+#>
+        }
+<#+
+}	
+#>
+<#+ 
+void ClosePartialClass()
+{
+#>
+    }
+<#+
+}
+#>
+
+<#+ 
+void CloseNamespace()
+{
+#>
+}
+<#+
+}
+#>
