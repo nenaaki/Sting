@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sting.Controls.Panel.Presenter
+﻿namespace Sting.Controls.Panel.Presenter
 {
-    class Basic : PresenterBase
+    /// <summary>
+    /// 通常のプレゼンターです。
+    /// Viewport矩形との交差判定のみで描画するかどうかを判定します。
+    /// </summary>
+    public class Basic : PresenterBase
     {
     }
 }

@@ -109,10 +109,10 @@
     <Compile Include="Panel\Presenter\PresenterBase.cs" />
     <Compile Include="Panel\Presenter\QuadTree.cs" />
     <Compile Include="Panel\QuadDoubleToRectConverter.cs" />
-    <Compile Include="Panel\GridLayouter.cs" />
-    <Compile Include="Panel\ILayouter.cs" />
+    <Compile Include="Panel\Layouter\GridLayouter.cs" />
+    <Compile Include="Panel\Layouter\ILayouter.cs" />
     <Compile Include="Panel\IUIElement.cs" />
-    <Compile Include="Panel\LayouterBase.cs" />
+    <Compile Include="Panel\Layouter\LayouterBase.cs" />
     <Compile Include="Panel\FlexiblePanel.cs" />
     <Compile Include="Panel\Shapes\Ellipse.cs" />
     <Compile Include="Panel\Shapes\FanShape.cs" />
@@ -121,7 +121,7 @@
     <Compile Include="Panel\Shapes\Rectangle.cs" />
     <Compile Include="Panel\Shapes\RoundedRectangle.cs" />
     <Compile Include="Panel\Shapes\ShapeBase.cs" />
-    <Compile Include="Panel\StackLayouter.cs" />
+    <Compile Include="Panel\Layouter\StackLayouter.cs" />
     <Compile Include="Panel\TextBlock.cs" />
     <Compile Include="Panel\ControlBase.cs" />
     <Compile Include="Panel\VirtualElementHost.cs" />

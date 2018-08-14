@@ -8,7 +8,7 @@ namespace Sting.Controls.Panel
     /// <summary>
     /// ４つのdouble値を左上位置、サイズに見立てて<see cref="Rect"/>を生成するコンバーターです。
     /// </summary>
-    public class QuadDoubleToRectConverter : IMultiValueConverter
+    public sealed class QuadDoubleToRectConverter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {

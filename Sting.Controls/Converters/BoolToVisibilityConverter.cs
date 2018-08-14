@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace Sting.Converters
 {
-    public class BoolToVisibilityConverter : IValueConverter
+    public sealed class BoolToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {

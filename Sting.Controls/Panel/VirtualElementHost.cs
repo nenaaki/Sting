@@ -12,7 +12,7 @@ namespace Sting.Controls.Panel
         /// <summary>
         /// <see cref="Content"/>が設定されていない場合のサイズを用意しておきます。
         /// </summary>
-        private static Size _zeroSize = new Size();
+        private static readonly Size _zeroSize = new Size();
 
         private ControlBase _content;
 
@@ -108,6 +108,11 @@ namespace Sting.Controls.Panel
 
         protected override GeometryHitTestResult HitTestCore(GeometryHitTestParameters hitTestParameters)
         {
+            if (_content != null)
+            {
+                var result = _content.HitTest(hitTestParameters);
+            }
+
             return base.HitTestCore(hitTestParameters);
         }
 

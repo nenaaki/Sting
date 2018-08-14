@@ -1,18 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Sting.Controls
 {
+    /// <summary>
+    /// <see cref="Freezable"/>の拡張メソッド群です。
+    /// </summary>
     public static class FreezableExtentions
     {
-        public static  T WithFreeze<T>(T freezable)
-            where T : Freezable
+        /// <summary>
+        /// <see cref="Freezable.Freeze"/>を実行する拡張メソッドです。
+        /// </summary>
+        /// <param name="freezable"><see cref="Freezable"/></param>
+        public static Freezable WithFreeze(this Freezable freezable)
         {
-            if(freezable.CanFreeze)
+            if (freezable.CanFreeze)
             {
                 freezable.Freeze();
             }
