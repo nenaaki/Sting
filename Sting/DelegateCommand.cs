@@ -25,7 +25,6 @@ namespace Sting
     /// <summary>
     /// パラメーターの型が決まっているコマンドを実装します
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class DelegateCommand<T> : CommandBase
     {
         private readonly Action<T> _execute;
@@ -33,6 +32,27 @@ namespace Sting
         private readonly Func<T, bool> _canExecute;
 
         public DelegateCommand(Action<T> execute, Func<T, bool> canExecute = null)
+        {
+            _execute = execute;
+            _canExecute = canExecute;
+        }
+
+        public override void Execute(object parameter) => _execute((T)parameter);
+
+        public override bool CanExecute(object parameter) => _canExecute?.Invoke((T)parameter) ?? false;
+    }
+
+    /// <summary>
+    /// ViewModelとパラメーターの型が決まっているコマンドを実装します
+    /// </summary>
+    public class DelegateCommand<TViewModel, TParam> : CommandBase<TViewModel>
+    {
+        private readonly Action<TViewModel, TParam> _execute;
+
+        private readonly Func<TViewModel, TParam, bool> _canExecute;
+
+        public DelegateCommand(TViewModel viewModel, Action<TViewModel, TParam> execute, Func<TViewModel, TParam, bool> canExecute = null)
+            : base(viewModel)
         {
             _execute = execute;
             _canExecute = canExecute;
