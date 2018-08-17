@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using Sting;
 using Sting.Collection;
 using BenchmarkDotNet.Attributes;
 
@@ -7,6 +9,8 @@ namespace Sting.Benchmark
     public class RefereneArrayBenchmark
     {
         private Rect[] _rects = new Rect[100];
+
+        private double[] result = new double[10000];
 
         [Benchmark]
         public void UpdateRectRefArray()
@@ -34,6 +38,20 @@ namespace Sting.Benchmark
             {
                 _rects[idx].Offset(100, 100);
             }
+        }
+
+        [Benchmark]
+        public void DoubleMaxLegacy()
+        {
+            for(int idx=0 ; idx<10000;idx++)
+                result[idx] = Math.Max((double)(10000 - idx), (double)idx);
+        }
+
+        [Benchmark]
+        public void DoubleMaxNew()
+        {
+            for(int idx=0 ; idx<10000;idx++)
+                result[idx] = ((double)(10000 - idx), (double)idx).Max();
         }
     }
 }

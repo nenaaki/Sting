@@ -1,6 +1,9 @@
 ﻿namespace Sting.Controls.Panel.Presenter
 {
-    public class PresenterBase
+    /// <summary>
+    ///
+    /// </summary>
+    public abstract class PresenterBase
     {
     }
 }

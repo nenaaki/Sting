@@ -82,21 +82,18 @@
     <Compile Include="Panel\Behavior\Resizable.cs" />
     <Compile Include="Panel\Behavior\TextInput.cs" />
     <Compile Include="Panel\Canvas.cs" />
-    <Compile Include="Panel\CanvasLayouter.cs" />
     <Compile Include="Panel\CircleLayouter.cs" />
     <Compile Include="Panel\ColumnHeader.cs" />
     <Compile Include="Panel\ContentBase.cs" />
     <Compile Include="Panel\ContentHost.cs" />
-    <Compile Include="Panel\GridView.xaml.cs">
-      <DependentUpon>GridView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Panel\IAnimatableContent.cs" />
     <Compile Include="Panel\IFrameworkElement.cs" />
     <Compile Include="Panel\IMouseResizable.cs" />
-    <Compile Include="Panel\LayerLayouter.cs" />
     <Compile Include="Panel\Indexer\Flat.cs" />
     <Compile Include="Panel\Indexer\IndexerBase.cs" />
     <Compile Include="Panel\Indexer\ZOrderd.cs" />
+    <Compile Include="Panel\Layouter\CanvasLayouter.cs" />
+    <Compile Include="Panel\Layouter\LayerLayouter.cs" />
     <Compile Include="Panel\Media\CachedSolidColorBrush.cs" />
     <Compile Include="Panel\Media\EmptyBrush.cs" />
     <Compile Include="Panel\Media\EmptyPen.cs" />
@@ -138,10 +135,6 @@
     </Compile>
     <Compile Include="ZipCodeViewModel.cs" />
     <Page Include="DataGrid.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Panel\GridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

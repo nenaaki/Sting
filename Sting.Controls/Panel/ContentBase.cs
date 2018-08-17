@@ -4,9 +4,9 @@ using System.Windows.Media;
 namespace Sting.Controls.Panel
 {
     /// <summary>
-    /// コンテンツの基底クラスです。継承先はView側を実装します。
+    /// コンテンツの基底クラスです。継承先は仮想コントロールのView側を実装します。
     /// </summary>
-    public abstract class ContentBase
+    public abstract class ContentBase : NotifyObjectBase
     {
         public ContentHost Owner { get; set; }
 

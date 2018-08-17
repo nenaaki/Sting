@@ -11,7 +11,7 @@ namespace Sting.Controls.Panel.Indexer
     {
         public override void Present(IList<VirtualElementHost> visibleHosts, ICollection<VirtualElementHost> hosts, IEnumerable<ContentBase> controls)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

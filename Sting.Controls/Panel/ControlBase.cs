@@ -10,6 +10,9 @@ namespace Sting.Controls.Panel
     /// </summary>
     public abstract class ControlBase : IFrameworkElement
     {
+        /// <summary>
+        /// 所属するパネルです。
+        /// </summary>
         public FlexiblePanel Panel { get; set; }
 
         /// <summary>
