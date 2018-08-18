@@ -108,6 +108,6 @@ namespace Sting
         /// <param name="width">Widthの値</param>
         /// <param name="height">Heightの値</param>
         /// <returns>新しい<see cref="ImmutableRect"/></returns>
-        public ImmutableRect Create(double x, double y, double width, Double height) => new ImmutableRect(x, y, width.ZeroOrMore(), height.ZeroOrMore());
+        public static ImmutableRect Create(double x, double y, double width, double height) => new ImmutableRect(x, y, width.ZeroOrMore(), height.ZeroOrMore());
     }
 }

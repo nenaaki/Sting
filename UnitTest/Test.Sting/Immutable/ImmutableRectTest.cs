@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Windows;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Sting
 {
@@ -13,6 +14,19 @@ namespace Sting
             rect.Y.Is(2);
             rect.Width.Is(3);
             rect.Height.Is(4);
+
+            ImmutableRect.Create(100, 200, double.NaN, double.NaN).Is(new ImmutableRect(100, 200, 0, 0));
+            ImmutableRect.Create(101, 201, 10, 20).Is(new ImmutableRect(101, 201, 10, 20));
+
+            var rect2 = new Rect(1000, 2000, 3000, 4000);
+            ImmutableRect rect3 = rect2;
+            rect3.X.Is(1000);
+            rect3.Y.Is(2000);
+            rect3.Width.Is(3000);
+            rect3.Height.Is(4000);
+
+            Rect rect4 = rect3;
+            rect4.Is(rect2);
         }
 
         [TestMethod]
