@@ -14,6 +14,16 @@ namespace Sting
             rect.Y.Is(2);
             rect.Width.Is(3);
             rect.Height.Is(4);
+            rect.Size.Is(new ImmutableSize(3, 4));
+            rect.Location.Is(new ImmutablePoint(1, 2));
+            rect.Left.Is(1);
+            rect.Top.Is(2);
+            rect.Right.Is(4);
+            rect.Bottom.Is(6);
+            rect.LeftTop.Is(new ImmutablePoint(1, 2));
+            rect.RightTop.Is(new ImmutablePoint(4, 2));
+            rect.LeftBottom.Is(new ImmutablePoint(1, 6));
+            rect.RightBottom.Is(new ImmutablePoint(4, 6));
 
             ImmutableRect.Create(100, 200, double.NaN, double.NaN).Is(new ImmutableRect(100, 200, 0, 0));
             ImmutableRect.Create(101, 201, 10, 20).Is(new ImmutableRect(101, 201, 10, 20));
@@ -27,6 +37,10 @@ namespace Sting
 
             Rect rect4 = rect3;
             rect4.Is(rect2);
+
+            rect.GetHashCode().IsNot(rect3.GetHashCode());
+            (rect == rect3).IsFalse();
+            (rect != rect3).IsTrue();
         }
 
         [TestMethod]
