@@ -32,18 +32,15 @@ namespace Sting
     /// <summary>
     /// コマンドの基底クラスです。
     /// </summary>
+    /// <typeparam name="T">パラメーターの型</typeparam>
     public abstract class CommandBase<T> : CommandBase
-        where T : class
     {
-        protected T Source { get; }
+        public sealed override bool CanExecute(object parameter) => CanExecute((T)parameter);
 
-        /// <summary>
-        /// コンストラクターです。
-        /// </summary>
-        /// <param name="source">ViewModelを想定しています。</param>
-        public CommandBase(T source)
-        {
-            Source = source;
-        }
+        public virtual bool CanExecute(T parameter) => true;
+
+        public sealed override void Execute(object parameter) => Execute((T)parameter);
+
+        public abstract void Execute(T parameter);
     }
 }

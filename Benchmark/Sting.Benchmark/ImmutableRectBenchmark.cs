@@ -5,6 +5,8 @@ namespace Sting.Benchmark
 {
     public class ImmutableRectBenchmark
     {
+#if PARAM_BENCHMARK
+
         private readonly ImmutableRect[] _immutableRects = new ImmutableRect[10000];
 
         private readonly Rect[] _rects = new Rect[10000];
@@ -186,6 +188,9 @@ namespace Sting.Benchmark
                 return new ImmutablePoint(source.X * 2, source.Y * 2);
             }
         }
+#endif
+
+        private bool[] _contains_results = new bool[10000];
 
         [Benchmark]
         public void Rect_Rect_Contains()
@@ -193,7 +198,7 @@ namespace Sting.Benchmark
             var rect1 = new Rect(0, 0, 5000, 5000);
             for (int idx = 0; idx < 10000; idx++)
             {
-                rect1.Contains(new Rect(0, 0, idx, idx));
+                _contains_results[idx] = rect1.Contains(new Rect(0, 0, idx, idx));
             }
         }
 
@@ -203,7 +208,17 @@ namespace Sting.Benchmark
             var rect1 = new ImmutableRect(0, 0, 5000, 5000);
             for (int idx = 0; idx < 10000; idx++)
             {
-                rect1.Contains(new ImmutableRect(0, 0, idx, idx));
+                _contains_results[idx] = rect1.Contains(new ImmutableRect(0, 0, idx, idx));
+            }
+        }
+
+        [Benchmark]
+        public void ImmutableRect_Rect_Contains()
+        {
+            var rect1 = new ImmutableRect(0, 0, 5000, 5000);
+            for (int idx = 0; idx < 10000; idx++)
+            {
+                _contains_results[idx] = rect1.Contains(new Rect(0, 0, idx, idx));
             }
         }
     }

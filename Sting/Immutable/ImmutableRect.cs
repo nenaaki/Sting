@@ -51,7 +51,7 @@ namespace Sting
 
         public ImmutablePoint RightBottom => new ImmutablePoint(Right, Bottom);
 
-        public bool IsEmpty() => Width < 0 || Height < 0;
+        public bool IsEmpty => Width < 0 || Height < 0;
 
         public ImmutableRect(double x, double y, double width, double height) => (X, Y, Width, Height) = (x, y, width, height);
 
@@ -85,6 +85,8 @@ namespace Sting
         /// </returns>
         public bool Contains(in ImmutablePoint point)
         {
+            if (IsEmpty) return false;
+
             var x = point.X - X;
             var y = point.Y - Y;
 
@@ -98,7 +100,18 @@ namespace Sting
         /// <returns>
         ///   <c>true</c> if [contains] [the specified rect]; otherwise, <c>false</c>.
         /// </returns>
-        public bool Contains(in ImmutableRect rect) => Contains(rect.Location) && Contains(rect.RightBottom);
+        public bool Contains(in ImmutableRect rect)
+        {
+            if (IsEmpty) return false;
+
+            var x1 = rect.X - X;
+            var y1 = rect.Y - Y;
+            var x2 = x1 + rect.Width;
+            var y2 = y1 + rect.Height;
+
+            return 0 <= x1 && x1 <= Width && 0 <= y1 && y1 <= Height
+                && 0 <= x2 && x2 <= Width && 0 <= y2 && y2 <= Height;
+        }
 
         /// <summary>
         /// 空ではない<see cref="ImmutableRect"/>を作成します。
