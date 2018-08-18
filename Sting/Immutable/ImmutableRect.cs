@@ -83,7 +83,7 @@ namespace Sting
         /// <returns>
         ///   <c>true</c> if [contains] [the specified point]; otherwise, <c>false</c>.
         /// </returns>
-        public bool Contains(ImmutablePoint point)
+        public bool Contains(in ImmutablePoint point)
         {
             var x = point.X - X;
             var y = point.Y - Y;
@@ -98,7 +98,7 @@ namespace Sting
         /// <returns>
         ///   <c>true</c> if [contains] [the specified rect]; otherwise, <c>false</c>.
         /// </returns>
-        public bool Contains(ImmutableRect rect) => Contains(rect.Location) && Contains(rect.RightBottom);
+        public bool Contains(in ImmutableRect rect) => Contains(rect.Location) && Contains(rect.RightBottom);
 
         /// <summary>
         /// 空ではない<see cref="ImmutableRect"/>を作成します。
