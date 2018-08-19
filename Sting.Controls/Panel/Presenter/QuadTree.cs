@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sting.Controls.Panel.Presenter
+﻿namespace Sting.Controls.Panel.Presenter
 {
-    class QuadTree : PresenterBase
+    internal class QuadTree : PresenterBase
     {
     }
 }

@@ -1,7 +1,7 @@
-﻿using Sting.Controls.Panel.Behavior;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
+using Sting.Controls.Panel.Behavior;
 
 namespace Sting.Controls.Panel
 {

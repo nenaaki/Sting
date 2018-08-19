@@ -1,7 +1,7 @@
-﻿using Sting.Controls.Panel.Behavior;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Media;
+using Sting.Controls.Panel.Behavior;
 
 namespace Sting.Controls.Panel
 {
@@ -43,11 +43,17 @@ namespace Sting.Controls.Panel
         public bool MeasureDirty { get; private set; }
 
         public abstract IMouseInput MouseInput { get; }
+
         public double Width { get; set; }
+
         public double Height { get; set; }
+
         public double MinWidth { get; set; }
+
         public double MinHeight { get; set; }
+
         public double MaxWidth { get; set; }
+
         public double MaxHeight { get; set; }
 
         public double ActualWidht => throw new NotImplementedException();

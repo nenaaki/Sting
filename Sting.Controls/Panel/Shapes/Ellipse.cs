@@ -1,11 +1,6 @@
-﻿using Sting.Controls.Panel.Media;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
+using Sting.Controls.Panel.Media;
 
 namespace Sting.Controls.Panel.Shapes
 {

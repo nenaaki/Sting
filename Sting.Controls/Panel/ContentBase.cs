@@ -15,6 +15,7 @@ namespace Sting.Controls.Panel
         public Rect Bounds
         {
             get { return _bounds; }
+
             set
             {
                 if (_bounds == value)
