@@ -32,11 +32,15 @@ namespace Sting
 
         public static implicit operator ImmutableVector(Vector source) => new ImmutableVector(source.X, source.Y);
 
+        public static explicit operator ImmutablePoint(ImmutableVector source) => new ImmutablePoint(source.X, source.Y);
+
+        public static explicit operator ImmutableVector(ImmutablePoint source) => new ImmutableVector(source.X, source.Y);
+
         public static bool operator ==(in ImmutableVector source1, in ImmutableVector source2) => source1.X == source2.X && source1.Y == source2.Y;
 
         public static bool operator !=(in ImmutableVector source1, in ImmutableVector source2) => !(source1 == source2);
 
-        public double Length => Math.Sqrt(LengthSquared);
+        public double Length => Math.Sqrt(X * X + Y * Y);
 
         public double LengthSquared => X * X + Y * Y;
     }

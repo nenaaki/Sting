@@ -6,6 +6,8 @@ namespace Sting.Converters
 {
     public sealed class BoolToVisibilityConverter : IValueConverter
     {
+        public readonly static BoolToVisibilityConverter Instance = new BoolToVisibilityConverter();
+
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             if (value is bool isVisible)

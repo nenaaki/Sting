@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows;
+using Sting;
+using Sting.Collection;
 using BenchmarkDotNet.Attributes;
 
 namespace Sting.Benchmark
@@ -41,14 +43,14 @@ namespace Sting.Benchmark
         [Benchmark]
         public void DoubleMaxLegacy()
         {
-            for (int idx = 0; idx < 10000; idx++)
+            for(int idx=0 ; idx<10000;idx++)
                 result[idx] = Math.Max((double)(10000 - idx), (double)idx);
         }
 
         [Benchmark]
         public void DoubleMaxNew()
         {
-            for (int idx = 0; idx < 10000; idx++)
+            for(int idx=0 ; idx<10000;idx++)
                 result[idx] = ((double)(10000 - idx), (double)idx).Max();
         }
     }

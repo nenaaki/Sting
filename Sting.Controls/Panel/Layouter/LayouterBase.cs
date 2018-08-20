@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Sting.Controls.Panel.Behavior;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
-using Sting.Controls.Panel.Behavior;
 
 namespace Sting.Controls.Panel
 {

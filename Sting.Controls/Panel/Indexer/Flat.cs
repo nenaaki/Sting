@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Sting.Controls.Panel.Indexer
 
 {
-    internal class Flat : IndexerBase
+    class Flat : IndexerBase
     {
         public override void Present(IList<VirtualElementHost> visibleHosts, ICollection<VirtualElementHost> hosts, IEnumerable<ContentBase> controls)
         {
+            
         }
     }
 }

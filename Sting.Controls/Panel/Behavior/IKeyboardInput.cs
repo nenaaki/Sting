@@ -1,6 +1,13 @@
-﻿namespace Sting.Controls.Panel.Behavior
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Sting.Controls.Panel.Behavior
 {
-    internal interface IKeyboardInput
+    interface IKeyboardInput
     {
+        
     }
 }

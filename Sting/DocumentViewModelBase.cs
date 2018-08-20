@@ -2,12 +2,17 @@
 {
     public abstract class DocumentViewModelBase : ViewModelBase, IDocumentViewModel
     {
-        protected DocumentViewModelBase()
-        {
-        }
-
+        /// <summary>
+        /// <see cref="IsDirty"/>がtrueの場合保存に成功したらtrue、
+        /// <see cref="IsDirty"/>がfalseの場合常にtrueを返します。
+        /// </summary>
+        /// <returns></returns>
         public virtual bool QueryClosing()
         {
+            if (IsDirty)
+            {
+                return Save();
+            }
             return true;
         }
 
@@ -41,5 +46,7 @@
         {
             get { return GetType().ToString(); }
         }
+
+        public virtual bool Save() => true;
     }
 }

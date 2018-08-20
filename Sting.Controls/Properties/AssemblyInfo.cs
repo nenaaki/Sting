@@ -31,12 +31,12 @@ using System.Windows.Markup;
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //テーマ固有のリソース ディクショナリが置かれている場所
 
-    //(リソースがページ、
-    // またはアプリケーション リソース ディクショナリに見つからない場合に使用されます)
+                                     //(リソースがページ、
+                                     // またはアプリケーション リソース ディクショナリに見つからない場合に使用されます)
     ResourceDictionaryLocation.SourceAssembly //汎用リソース ディクショナリが置かれている場所
 
-//(リソースがページ、
-// アプリケーション、またはいずれのテーマ固有のリソース ディクショナリにも見つからない場合に使用されます)
+                                              //(リソースがページ、
+                                              // アプリケーション、またはいずれのテーマ固有のリソース ディクショナリにも見つからない場合に使用されます)
 )]
 [assembly: XmlnsDefinition("http://sting.yasys.co.jp/", "Sting")]
 [assembly: XmlnsDefinition("http://sting.yasys.co.jp/", "Sting.Converters")]

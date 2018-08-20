@@ -1,4 +1,4 @@
-﻿namespace Sting
+﻿namespace Sting.Collection
 {
     public readonly struct ReferenceArray<T>
     {

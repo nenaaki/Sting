@@ -65,6 +65,30 @@ namespace Sting
         }
 
         /// <summary>
+        /// IEquatable型のフィールド更新処理です。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value"></param>
+        /// <param name="field"></param>
+        /// <param name="dependedProperties"></param>
+        /// <param name="dependedCommands"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        protected bool UpdateEquatableField<T>(T value, ref T field, string[] dependedProperties = null, ICommandBase[] dependedCommands = null, [CallerMemberName]string propertyName = null)
+            where T : class, IEquatable<T>
+        {
+            if (field == null && value == null)
+                return false;
+
+            if (field != null && value != null && field.Equals(value))
+                return false;
+
+            field = value;
+            NotifyPropertyChanged(propertyName, dependedProperties, dependedCommands);
+            return true;
+        }
+
+        /// <summary>
         /// 比較を行わずに強制的に更新する処理です。
         /// </summary>
         /// <typeparam name="T"></typeparam>

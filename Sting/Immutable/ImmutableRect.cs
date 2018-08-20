@@ -102,15 +102,30 @@ namespace Sting
         /// </returns>
         public bool Contains(in ImmutableRect rect)
         {
-            if (IsEmpty) return false;
+            return Width >= 0 && Height >= 0 // !IsEmpty
+                && X <= rect.X
+                && Y <= rect.Y
+                && rect.Width >= 0 && rect.Height >= 0 // !rect.IsEmpty
+                && X + Width >= rect.X + rect.Width
+                && Y + Height >= rect.Y + rect.Height;
+        }
 
-            var x1 = rect.X - X;
-            var y1 = rect.Y - Y;
-            var x2 = x1 + rect.Width;
-            var y2 = y1 + rect.Height;
-
-            return 0 <= x1 && x1 <= Width && 0 <= y1 && y1 <= Height
-                && 0 <= x2 && x2 <= Width && 0 <= y2 && y2 <= Height;
+        /// <summary>
+        /// 交差しているかを確認します。
+        /// </summary>
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <param name="rect">交差判定を行う<see cref="ImmutableRect"/></param>
+        /// <returns>交差している場合 true を返します。</returns>
+        public bool IntersectsWith(in ImmutableRect rect)
+        {
+            return Width >= 0 && Height >= 0 // !IsEmpty
+                && rect.Width >= 0 && rect.Height >= 0 // !rect.IsEmpty
+                && rect.X <= X + Width
+                && rect.X + rect.Width >= X
+                && rect.Y <= Y + Height
+                && rect.Y + rect.Height >= Y;
         }
 
         /// <summary>

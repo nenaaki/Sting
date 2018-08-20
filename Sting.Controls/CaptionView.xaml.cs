@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Sting.Controls
 {
     /// <summary>
-    /// ZipCodeView.xaml の相互作用ロジック
+    /// CaptionView.xaml の相互作用ロジック
     /// </summary>
-    public partial class ZipCodeView : UserControl
+    public partial class CaptionView : UserControl
     {
-        public ZipCodeView()
+        public CaptionView()
         {
             InitializeComponent();
         }

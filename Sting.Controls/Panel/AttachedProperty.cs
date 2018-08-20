@@ -8,7 +8,6 @@ namespace Sting.Controls.Panel
         private static int _nextId;
 
         private int _id;
-
         public WeakVirtualElement(ControlBase virtualElement)
         {
             _virtualElement = new WeakReference(virtualElement);
@@ -16,7 +15,7 @@ namespace Sting.Controls.Panel
             _id = _nextId++;
         }
 
-        private WeakReference _virtualElement;
+        WeakReference _virtualElement;
 
         public bool IsAlive()
         {
@@ -34,6 +33,7 @@ namespace Sting.Controls.Panel
         protected static List<Action<int>> _compactionList = new List<Action<int>>();
 
         protected static List<Func<int>> _getCountList = new List<Func<int>>();
+
 
         public static void CompactionAll()
         {
@@ -53,6 +53,7 @@ namespace Sting.Controls.Panel
             return count;
         }
     }
+
 
     public class AttachedProperty<T> : AttachedPropertyBase
     {

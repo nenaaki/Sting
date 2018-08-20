@@ -1,9 +1,16 @@
-﻿namespace Sting.Controls.Panel
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+
+namespace Sting.Controls.Panel
 {
     /// <summary>
     /// マウスでリサイズできるコントロールです。
     /// </summary>
-    internal interface IMouseResizable
+    interface IMouseResizable
     {
         bool CanHorizontalResizing { get; }
 

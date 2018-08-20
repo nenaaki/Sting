@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Test.Sting")]
@@ -9,7 +10,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+
 [assembly: ComVisible(false)]
+
 [assembly: Guid("8c6186b3-8cbd-462d-8212-05fd73b197ca")]
 
 // [assembly: AssemblyVersion("1.0.*")]

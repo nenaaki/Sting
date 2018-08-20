@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sting.Controls.Panel.Behavior
+namespace Sting.Controls.Enums
 {
-    class TextInput : IKeyboardInput
+    public enum ViewMode
     {
+        Viewer = 0,
+        Editor = 1,
+        Print = 2,
     }
 }
