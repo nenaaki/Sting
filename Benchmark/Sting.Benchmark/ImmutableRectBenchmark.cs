@@ -232,16 +232,6 @@ namespace Sting
         }
 
         [Benchmark]
-        public void ImmutableRect_Infrate_ValueTuple()
-        {
-            var rect1 = new ImmutableRect(0, 0, 5000, 5000);
-            for (int idx = 0; idx < 10000; idx++)
-            {
-                _immutableRects[idx] = new ImmutableRect(idx, idx, idx, idx).Inflate((idx, idx));
-            }
-        }
-
-        [Benchmark]
         public void ImmutableRect_Infrate_Param()
         {
             var rect1 = new ImmutableRect(0, 0, 5000, 5000);
