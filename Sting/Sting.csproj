@@ -138,6 +138,7 @@
     <Compile Include="DictionaryExtensions.cs" />
     <Compile Include="DocumentViewModelBase.cs" />
     <Compile Include="Extensions\DoubleExtensions.cs" />
+    <Compile Include="Extensions\ImmutablePointExtensions.cs" />
     <Compile Include="Extensions\ImmutableRectExtensions.cs" />
     <Compile Include="Extensions\ImmutableVectorExtensions.cs" />
     <Compile Include="IDocumentHost.cs" />
