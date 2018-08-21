@@ -103,9 +103,9 @@ namespace Sting
         public bool Contains(in ImmutableRect rect)
         {
             return Width >= 0 && Height >= 0 // !IsEmpty
+                && rect.Width >= 0 && rect.Height >= 0 // !rect.IsEmpty
                 && X <= rect.X
                 && Y <= rect.Y
-                && rect.Width >= 0 && rect.Height >= 0 // !rect.IsEmpty
                 && X + Width >= rect.X + rect.Width
                 && Y + Height >= rect.Y + rect.Height;
         }
