@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Sting;
-
-namespace Sting.Controls
+﻿namespace Sting.Controls
 {
     public class CaptionViewModel : ViewModelBase
     {
@@ -25,11 +18,6 @@ namespace Sting.Controls
             set => UpdateField(value, ref _title);
         }
 
-        public ICommandBase CloseCommand { get; }
-
-        public CaptionViewModel(ICommandBase closeCommand)
-        {
-            CloseCommand = closeCommand;
-        }
+        public virtual ICommandBase CloseCommand { get; }
     }
 }

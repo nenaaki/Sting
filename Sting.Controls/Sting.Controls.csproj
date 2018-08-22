@@ -139,6 +139,7 @@
       <DependentUpon>DataGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="DelegateConverter.cs" />
+    <Compile Include="DocumentViewModelBase.cs" />
     <Compile Include="FreezableExtentions.cs" />
     <Compile Include="ImmediateWindowsFormsHost.cs" />
     <Compile Include="Panel\AttachedProperty.cs" />
