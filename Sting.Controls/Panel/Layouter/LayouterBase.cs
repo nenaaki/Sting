@@ -1,10 +1,10 @@
-﻿using Sting.Controls.Panel.Behavior;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
+using Sting.Controls.Panel.Behavior;
 
 namespace Sting.Controls.Panel
 {
@@ -95,14 +95,14 @@ namespace Sting.Controls.Panel
                 Panel.PostPresent();
         }
 
-        public void CalcRectDic(Dictionary<ControlBase, Rect> dic, Point offset)
+        public void CalcRectDic(Dictionary<ControlBase, ImmutableRect> dic, Point offset)
         {
             foreach (var child in Children)
             {
                 var childOffset = ChildRectDic[child].Location;
                 var point = new Point(childOffset.X + offset.X, childOffset.Y + offset.Y);
 
-                dic.Add(child, new Rect(childOffset, child.DesiredSize));
+                dic.Add(child, new ImmutableRect(childOffset, child.DesiredSize));
 
                 var layouter = child as LayouterBase;
                 if (layouter != null && !layouter.IsDirectRendering)

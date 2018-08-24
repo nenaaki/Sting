@@ -55,6 +55,8 @@ namespace Sting
 
         public ImmutableRect(double x, double y, double width, double height) => (X, Y, Width, Height) = (x, y, width, height);
 
+        public ImmutableRect(in ImmutablePoint point, in ImmutableSize size) => (X, Y, Width, Height) = (point.X, point.Y, size.Width, size.Height);
+
         public static implicit operator ImmutableRect(Rect source) => new ImmutableRect(source.X, source.Y, source.Width, source.Height);
 
         public static implicit operator Rect(in ImmutableRect source) => new Rect(source.X, source.Y, source.Width, source.Height);

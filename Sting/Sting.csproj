@@ -131,6 +131,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collection\ReadonlyValueDictionary.cs" />
     <Compile Include="Collection\ReferenceArray.cs" />
     <Compile Include="CommandBase.cs" />
     <Compile Include="CommandManager.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="IExpandable.cs" />
     <Compile Include="IHidable.cs" />
     <Compile Include="Immutable\Color32.cs" />
+    <Compile Include="Immutable\Guid.cs" />
     <Compile Include="Immutable\ImmutablePoint.cs" />
     <Compile Include="Immutable\ImmutableRect.cs" />
     <Compile Include="Immutable\ImmutableSize.cs" />

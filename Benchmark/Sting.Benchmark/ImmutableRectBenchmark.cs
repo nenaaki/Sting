@@ -1,12 +1,14 @@
-﻿using System.Windows;
+﻿using System;
 using BenchmarkDotNet.Attributes;
 
 namespace Sting
 {
     public class ImmutableRectBenchmark
     {
-        private readonly ImmutableRect[] _immutableRects = new ImmutableRect[10000];
 #if PARAM_BENCHMARK
+        using System.Windows;
+
+        private readonly ImmutableRect[] _immutableRects = new ImmutableRect[10000];
 
         private readonly Rect[] _rects = new Rect[10000];
 
@@ -188,7 +190,6 @@ namespace Sting
             }
         }
 
-#endif
         private bool[] _contains_results = new bool[10000];
 
         [Benchmark]
@@ -238,6 +239,48 @@ namespace Sting
             for (int idx = 0; idx < 10000; idx++)
             {
                 _immutableRects[idx] = new ImmutableRect(idx, idx, idx, idx).Inflate(idx, idx);
+            }
+        }
+#endif
+        private int[] hashSets = new int[10000];
+        private bool[] equals = new bool[10000];
+
+        [Benchmark]
+        public void SystemImmutableGuid_In()
+        {
+            var guid1 = new Immutable.Guid(Guid.NewGuid());
+            var guid2 = new Immutable.Guid(Guid.NewGuid());
+
+            for (int idx = 0; idx < 10000; idx++)
+            {
+                hashSets[idx] = guid2.GetHashCode();
+                equals[idx] = guid1.Equals(in guid2);
+            }
+        }
+
+        [Benchmark]
+        public void SystemImmutableGuid()
+        {
+            var guid1 = new Immutable.Guid(Guid.NewGuid());
+            var guid2 = new Immutable.Guid(Guid.NewGuid());
+
+            for (int idx = 0; idx < 10000; idx++)
+            {
+                hashSets[idx] = guid2.GetHashCode();
+                equals[idx] = guid1.Equals(guid2);
+            }
+        }
+
+        [Benchmark]
+        public void SystemGuid()
+        {
+            var guid1 = Guid.NewGuid();
+            var guid2 = Guid.NewGuid();
+
+            for (int idx = 0; idx < 10000; idx++)
+            {
+                hashSets[idx] = guid2.GetHashCode();
+                equals[idx] = guid1.Equals(guid2);
             }
         }
     }

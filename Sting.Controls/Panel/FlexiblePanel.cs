@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
@@ -16,19 +15,22 @@ namespace Sting.Controls.Panel
     [ContentProperty("Layouter")]
     public class FlexiblePanel : FrameworkElement
     {
-        public class Information
+        public readonly struct Information
         {
-            public int UnusedVisualChildCount { get; set; }
+            public readonly int UnusedVisualChildCount;
 
-            public int VisualChildCount { get; set; }
+            public readonly int VisualChildCount;
 
-            public int ChildCount { get; set; }
+            public readonly int ChildCount;
+
+            public Information(int unused, int used, int childCount)
+                => (UnusedVisualChildCount, VisualChildCount, ChildCount) = (unused, used, childCount);
         }
 
         /// <summary>
         /// バインディング中に仮想化を要求している場合 true です。
         /// </summary>
-        private bool _present;
+        private bool _presenting;
 
         private readonly List<VirtualElementHost> _visualChildren = new List<VirtualElementHost>();
 
@@ -36,7 +38,7 @@ namespace Sting.Controls.Panel
 
         private readonly Dictionary<ControlBase, UIElement> _elements = new Dictionary<ControlBase, UIElement>();
 
-        private readonly Dictionary<ControlBase, Rect> _childRectDic = new Dictionary<ControlBase, Rect>();
+        private readonly Dictionary<ControlBase, ImmutableRect> _childRectDic = new Dictionary<ControlBase, ImmutableRect>();
 
         public FlexiblePanel()
         {
@@ -71,12 +73,7 @@ namespace Sting.Controls.Panel
                 var host = each.Key as ContentHost;
                 return host != null ? host.Contents.Count : 1;
             });
-            return new Information
-            {
-                UnusedVisualChildCount = _unusedElements.Count,
-                VisualChildCount = _visualChildren.Count,
-                ChildCount = count,
-            };
+            return new Information(_unusedElements.Count, _visualChildren.Count, count);
         }
 
         /// <summary>
@@ -157,28 +154,19 @@ namespace Sting.Controls.Panel
         }
 
         /// <inheritdoc />
-        protected override Visual GetVisualChild(int index)
-        {
-            return _visualChildren[index];
-        }
+        protected override Visual GetVisualChild(int index) => _visualChildren[index];
 
         /// <inheritdoc />
-        protected override int VisualChildrenCount
-        {
-            get
-            {
-                return _visualChildren.Count;
-            }
-        }
+        protected override int VisualChildrenCount => _visualChildren.Count;
 
         /// <summary>
         /// バインディング処理中に仮想化を実行します。
         /// </summary>
         public void PostPresent()
         {
-            if (!_present)
+            if (!_presenting)
             {
-                _present = true;
+                _presenting = true;
                 Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.DataBind,
                     new Action(() =>
                     {
@@ -192,7 +180,7 @@ namespace Sting.Controls.Panel
         /// </summary>
         private void Present()
         {
-            _present = false;
+            _presenting = false;
 
             if (Layouter == null)
                 return;
@@ -203,6 +191,7 @@ namespace Sting.Controls.Panel
 
             var viewport = Viewport;
             _childRectDic.Clear();
+
             Layouter.CalcRectDic(_childRectDic, new Point());
             foreach (var item in _childRectDic)
             {
