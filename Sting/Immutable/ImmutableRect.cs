@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Windows;
 
-namespace Sting
+namespace Sting.Immutable
 {
-    public readonly struct ImmutableRect : IEquatable<ImmutableRect>
+    public readonly struct Rect : IEquatable<Rect>
     {
         private const int PRIME_NUMBER = 357;
 
-        public static readonly ImmutableRect Empty = new ImmutableRect(double.NaN, double.NaN, double.NegativeInfinity, double.NegativeInfinity);
+        public static readonly Rect Empty = new Rect(double.NaN, double.NaN, double.NegativeInfinity, double.NegativeInfinity);
 
         /// <summary>
         /// Xを保持します。
@@ -53,23 +52,23 @@ namespace Sting
 
         public bool IsEmpty => Width < 0 || Height < 0;
 
-        public ImmutableRect(double x, double y, double width, double height) => (X, Y, Width, Height) = (x, y, width, height);
+        public Rect(double x, double y, double width, double height) => (X, Y, Width, Height) = (x, y, width, height);
 
-        public ImmutableRect(in ImmutablePoint point, in ImmutableSize size) => (X, Y, Width, Height) = (point.X, point.Y, size.Width, size.Height);
+        public Rect(in ImmutablePoint point, in ImmutableSize size) => (X, Y, Width, Height) = (point.X, point.Y, size.Width, size.Height);
 
-        public static implicit operator ImmutableRect(Rect source) => new ImmutableRect(source.X, source.Y, source.Width, source.Height);
+        public static implicit operator Rect(System.Windows.Rect source) => new Rect(source.X, source.Y, source.Width, source.Height);
 
-        public static implicit operator Rect(in ImmutableRect source) => new Rect(source.X, source.Y, source.Width, source.Height);
+        public static implicit operator System.Windows.Rect(in Rect source) => new System.Windows.Rect(source.X, source.Y, source.Width, source.Height);
 
-        public static bool operator ==(in ImmutableRect source1, in ImmutableRect source2) => source1.X == source2.X && source1.Y == source2.Y && source1.Width == source2.Width && source1.Height == source2.Height;
+        public static bool operator ==(in Rect source1, in Rect source2) => source1.X == source2.X && source1.Y == source2.Y && source1.Width == source2.Width && source1.Height == source2.Height;
 
-        public static bool operator !=(in ImmutableRect source1, in ImmutableRect source2) => !(source1 == source2);
+        public static bool operator !=(in Rect source1, in Rect source2) => !(source1 == source2);
 
-        public bool Equals(ImmutableRect other) => this == other;
+        public bool Equals(Rect other) => this == other;
 
         public override bool Equals(object obj)
         {
-            if (obj is ImmutableRect other)
+            if (obj is Rect other)
             {
                 return this == other;
             }
@@ -102,7 +101,7 @@ namespace Sting
         /// <returns>
         ///   <c>true</c> if [contains] [the specified rect]; otherwise, <c>false</c>.
         /// </returns>
-        public bool Contains(in ImmutableRect rect)
+        public bool Contains(in Rect rect)
         {
             return Width >= 0 && Height >= 0 // !IsEmpty
                 && rect.Width >= 0 && rect.Height >= 0 // !rect.IsEmpty
@@ -118,9 +117,9 @@ namespace Sting
         /// <remarks>
         ///
         /// </remarks>
-        /// <param name="rect">交差判定を行う<see cref="ImmutableRect"/></param>
+        /// <param name="rect">交差判定を行う<see cref="Rect"/></param>
         /// <returns>交差している場合 true を返します。</returns>
-        public bool IntersectsWith(in ImmutableRect rect)
+        public bool IntersectsWith(in Rect rect)
         {
             return Width >= 0 && Height >= 0 // !IsEmpty
                 && rect.Width >= 0 && rect.Height >= 0 // !rect.IsEmpty
@@ -131,13 +130,13 @@ namespace Sting
         }
 
         /// <summary>
-        /// 空ではない<see cref="ImmutableRect"/>を作成します。
+        /// 空ではない<see cref="Rect"/>を作成します。
         /// </summary>
         /// <param name="x">xの値</param>
         /// <param name="y">yの値</param>
         /// <param name="width">Widthの値</param>
         /// <param name="height">Heightの値</param>
-        /// <returns>新しい<see cref="ImmutableRect"/></returns>
-        public static ImmutableRect Create(double x, double y, double width, double height) => new ImmutableRect(x, y, width.ZeroOrMore(), height.ZeroOrMore());
+        /// <returns>新しい<see cref="Rect"/></returns>
+        public static Rect Create(double x, double y, double width, double height) => new Rect(x, y, width.ZeroOrMore(), height.ZeroOrMore());
     }
 }

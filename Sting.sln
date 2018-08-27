@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FlexPanelDemo", "FlexPanelD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexPanelDemo", "Demo\FlexPanelDemo\FlexPanelDemo.csproj", "{A06D935B-3ADD-48F6-A114-5D48ACB85EB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sting.Core", "Sting.Core\Sting.Core.csproj", "{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Azure Debug|Any CPU = Azure Debug|Any CPU
@@ -124,6 +126,24 @@ Global
 		{A06D935B-3ADD-48F6-A114-5D48ACB85EB9}.Release|x64.Build.0 = Release|Any CPU
 		{A06D935B-3ADD-48F6-A114-5D48ACB85EB9}.Release|x86.ActiveCfg = Release|Any CPU
 		{A06D935B-3ADD-48F6-A114-5D48ACB85EB9}.Release|x86.Build.0 = Release|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Azure Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Azure Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Azure Debug|x64.ActiveCfg = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Azure Debug|x64.Build.0 = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Azure Debug|x86.ActiveCfg = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Azure Debug|x86.Build.0 = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Debug|x64.Build.0 = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Debug|x86.Build.0 = Debug|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Release|x64.ActiveCfg = Release|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Release|x64.Build.0 = Release|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Release|x86.ActiveCfg = Release|Any CPU
+		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

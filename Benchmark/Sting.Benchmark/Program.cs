@@ -12,7 +12,7 @@ namespace Sting.Benchmark
             switch (Console.ReadKey().KeyChar)
             {
                 case '0':
-                    BenchmarkRunner.Run<ImmutableRectBenchmark>();
+                    BenchmarkRunner.Run<RectBenchmark>();
                     break;
 
                 case '1':
@@ -20,7 +20,7 @@ namespace Sting.Benchmark
                     break;
 
                 case 'A':
-                    BenchmarkRunner.Run<ImmutableRectBenchmark>();
+                    BenchmarkRunner.Run<RectBenchmark>();
                     BenchmarkRunner.Run<RefereneArrayBenchmark>();
                     break;
             }

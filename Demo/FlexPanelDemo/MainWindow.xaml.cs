@@ -9,7 +9,6 @@ namespace FlexPanelDemo
     {
         public MainWindow()
         {
-            InitializeComponent();
         }
     }
 }

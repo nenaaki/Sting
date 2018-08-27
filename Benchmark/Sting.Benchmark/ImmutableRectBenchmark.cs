@@ -3,12 +3,12 @@ using BenchmarkDotNet.Attributes;
 
 namespace Sting
 {
-    public class ImmutableRectBenchmark
+    public class RectBenchmark
     {
 #if PARAM_BENCHMARK
         using System.Windows;
 
-        private readonly ImmutableRect[] _immutableRects = new ImmutableRect[10000];
+        private readonly Immutable.Rect[] _Immutable.Rects = new Immutable.Rect[10000];
 
         private readonly Rect[] _rects = new Rect[10000];
 
@@ -23,9 +23,9 @@ namespace Sting
 
         private readonly Rectangle _rect = new Rectangle();
 
-        private class ImmutableRectangle
+        private class Immutable.Rectangle
         {
-            public ImmutableRect Rect { get; set; }
+            public Immutable.Rect Rect { get; set; }
         }
 
         private readonly Rectangle _immRect = new Rectangle();
@@ -69,9 +69,9 @@ namespace Sting
                 _rects[idx] = Process(_rect.Rect);
             }
 
-            ImmutableRect Process(ImmutableRect source)
+            Immutable.Rect Process(Immutable.Rect source)
             {
-                return new ImmutableRect(source.X * 2, source.Y * 2, source.Width * 2, source.Height * 2);
+                return new Immutable.Rect(source.X * 2, source.Y * 2, source.Width * 2, source.Height * 2);
             }
         }
 
@@ -84,39 +84,39 @@ namespace Sting
                 _rects[idx] = Process(_rect.Rect);
             }
 
-            ImmutableRect Process(in ImmutableRect source)
+            Immutable.Rect Process(in Immutable.Rect source)
             {
-                return new ImmutableRect(source.X * 2, source.Y * 2, source.Width * 2, source.Height * 2);
+                return new Immutable.Rect(source.X * 2, source.Y * 2, source.Width * 2, source.Height * 2);
             }
         }
 
         [Benchmark]
-        public void UseImmutableRect_In()
+        public void UseImmutable.Rect_In()
         {
             for (int idx = 0; idx < 10000; idx++)
             {
-                _immRect.Rect = new ImmutableRect(idx, idx, idx, idx);
-                _immutableRects[idx] = Process(_rect.Rect);
+                _immRect.Rect = new Immutable.Rect(idx, idx, idx, idx);
+                _Immutable.Rects[idx] = Process(_rect.Rect);
             }
 
-            ImmutableRect Process(in ImmutableRect source)
+            Immutable.Rect Process(in Immutable.Rect source)
             {
-                return new ImmutableRect(source.X * 2, source.Y * 2, source.Width * 2, source.Height * 2);
+                return new Immutable.Rect(source.X * 2, source.Y * 2, source.Width * 2, source.Height * 2);
             }
         }
 
         [Benchmark]
-        public void UseImmutableRect_Copy()
+        public void UseImmutable.Rect_Copy()
         {
             for (int idx = 0; idx < 10000; idx++)
             {
-                _immRect.Rect = new ImmutableRect(idx, idx, idx, idx);
-                _immutableRects[idx] = Process(_rect.Rect);
+                _immRect.Rect = new Immutable.Rect(idx, idx, idx, idx);
+                _Immutable.Rects[idx] = Process(_rect.Rect);
             }
 
-            ImmutableRect Process(ImmutableRect source)
+            Immutable.Rect Process(Immutable.Rect source)
             {
-                return new ImmutableRect(source.X * 2, source.Y * 2, source.Width * 2, source.Height * 2);
+                return new Immutable.Rect(source.X * 2, source.Y * 2, source.Width * 2, source.Height * 2);
             }
         }
 
@@ -149,16 +149,16 @@ namespace Sting
         }
 
         [Benchmark]
-        public void UseImmutableRect_Direct_In()
+        public void UseImmutable.Rect_Direct_In()
         {
             for (int idx = 0; idx < 10000; idx++)
             {
-                _immutableRects[idx] = Process(new ImmutableRect(idx, idx, idx, idx));
+                _Immutable.Rects[idx] = Process(new Immutable.Rect(idx, idx, idx, idx));
             }
 
-            ImmutableRect Process(in ImmutableRect source)
+            Immutable.Rect Process(in Immutable.Rect source)
             {
-                return new ImmutableRect(source.X * 2, source.Y * 2, source.Width * 2, source.Height * 2);
+                return new Immutable.Rect(source.X * 2, source.Y * 2, source.Width * 2, source.Height * 2);
             }
         }
 
@@ -203,19 +203,19 @@ namespace Sting
         }
 
         [Benchmark]
-        public void ImmutableRect_ImmutableRect_Contains()
+        public void Immutable.Rect_Immutable.Rect_Contains()
         {
-            var rect1 = new ImmutableRect(0, 0, 5000, 5000);
+            var rect1 = new Immutable.Rect(0, 0, 5000, 5000);
             for (int idx = 0; idx < 10000; idx++)
             {
-                _contains_results[idx] = rect1.Contains(new ImmutableRect(0, 0, idx, idx));
+                _contains_results[idx] = rect1.Contains(new Immutable.Rect(0, 0, idx, idx));
             }
         }
 
         [Benchmark]
-        public void ImmutableRect_Rect_Contains()
+        public void Immutable.Rect_Rect_Contains()
         {
-            var rect1 = new ImmutableRect(0, 0, 5000, 5000);
+            var rect1 = new Immutable.Rect(0, 0, 5000, 5000);
             for (int idx = 0; idx < 10000; idx++)
             {
                 _contains_results[idx] = rect1.Contains(new Rect(0, 0, idx, idx));
@@ -223,22 +223,22 @@ namespace Sting
         }
 
         [Benchmark]
-        public void ImmutableRect_ImmutableRect_Intersects()
+        public void Immutable.Rect_Immutable.Rect_Intersects()
         {
-            var rect1 = new ImmutableRect(0, 0, 5000, 5000);
+            var rect1 = new Immutable.Rect(0, 0, 5000, 5000);
             for (int idx = 0; idx < 10000; idx++)
             {
-                _contains_results[idx] = rect1.IntersectsWith(new ImmutableRect(idx, idx, idx, idx));
+                _contains_results[idx] = rect1.IntersectsWith(new Immutable.Rect(idx, idx, idx, idx));
             }
         }
 
         [Benchmark]
-        public void ImmutableRect_Infrate_Param()
+        public void Immutable.Rect_Infrate_Param()
         {
-            var rect1 = new ImmutableRect(0, 0, 5000, 5000);
+            var rect1 = new Immutable.Rect(0, 0, 5000, 5000);
             for (int idx = 0; idx < 10000; idx++)
             {
-                _immutableRects[idx] = new ImmutableRect(idx, idx, idx, idx).Inflate(idx, idx);
+                _Immutable.Rects[idx] = new Immutable.Rect(idx, idx, idx, idx).Inflate(idx, idx);
             }
         }
 #endif

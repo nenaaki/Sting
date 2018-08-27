@@ -24,13 +24,13 @@ namespace Sting.Controls.Panel
             }
         }
 
-        protected Dictionary<ControlBase, ImmutableRect> ChildRectDic { get; private set; }
+        protected Dictionary<ControlBase, Immutable.Rect> ChildRectDic { get; private set; }
 
         public ObservableCollection<ControlBase> Children { get; private set; }
 
         protected LayouterBase()
         {
-            ChildRectDic = new Dictionary<ControlBase, ImmutableRect>();
+            ChildRectDic = new Dictionary<ControlBase, Immutable.Rect>();
 
             Children = new ObservableCollection<ControlBase>();
 
@@ -39,7 +39,7 @@ namespace Sting.Controls.Panel
 
         public virtual ImmutablePoint GetChilldLocation(ControlBase child)
         {
-            if (ChildRectDic.TryGetValue(child, out ImmutableRect rect))
+            if (ChildRectDic.TryGetValue(child, out Immutable.Rect rect))
             {
                 return rect.Location;
             }
@@ -95,14 +95,14 @@ namespace Sting.Controls.Panel
                 Panel.PostPresent();
         }
 
-        public void CalcRectDic(Dictionary<ControlBase, ImmutableRect> dic, Point offset)
+        public void CalcRectDic(Dictionary<ControlBase, Immutable.Rect> dic, Point offset)
         {
             foreach (var child in Children)
             {
                 var childOffset = ChildRectDic[child].Location;
                 var point = new Point(childOffset.X + offset.X, childOffset.Y + offset.Y);
 
-                dic.Add(child, new ImmutableRect(childOffset, child.DesiredSize));
+                dic.Add(child, new Immutable.Rect(childOffset, child.DesiredSize));
 
                 var layouter = child as LayouterBase;
                 if (layouter != null && !layouter.IsDirectRendering)

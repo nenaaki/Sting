@@ -13,6 +13,7 @@ namespace Sting
         /// <summary>
         /// イベントを発行する
         /// </summary>
+        /// <typeparam name="T">イベントの引数型</typeparam>
         public static void Publish<T>(T args)
         {
             EventAggregator

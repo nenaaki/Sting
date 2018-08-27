@@ -38,7 +38,7 @@ namespace Sting.Controls.Panel
 
         private readonly Dictionary<ControlBase, UIElement> _elements = new Dictionary<ControlBase, UIElement>();
 
-        private readonly Dictionary<ControlBase, ImmutableRect> _childRectDic = new Dictionary<ControlBase, ImmutableRect>();
+        private readonly Dictionary<ControlBase, Immutable.Rect> _childRectDic = new Dictionary<ControlBase, Immutable.Rect>();
 
         public FlexiblePanel()
         {
