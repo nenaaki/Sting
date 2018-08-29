@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sting.Core</RootNamespace>
     <AssemblyName>Sting.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collection\ReferenceArray.cs" />
+    <Compile Include="Collection\ReferenceList.cs" />
     <Compile Include="Extensuins\DoubleExtensions.cs" />
     <Compile Include="Immutable\Guid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
