@@ -20,9 +20,4 @@
             public bool MoveNext() => ++_index < _array.Length;
         }
     }
-
-    public static class ReferenceArrayExtensions
-    {
-        public static ReferenceArray<T> AsRef<T>(this T[] array) => new ReferenceArray<T>(array);
-    }
 }

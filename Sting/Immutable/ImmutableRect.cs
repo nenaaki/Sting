@@ -66,14 +66,7 @@ namespace Sting.Immutable
 
         public bool Equals(Rect other) => this == other;
 
-        public override bool Equals(object obj)
-        {
-            if (obj is Rect other)
-            {
-                return this == other;
-            }
-            return false;
-        }
+        public override bool Equals(object obj) => obj is Rect other && this == other;
 
         public override int GetHashCode() => X.GetHashCode() ^ ~Y.GetHashCode() ^ Width.GetHashCode() * PRIME_NUMBER ^ ~Height.GetHashCode() * PRIME_NUMBER;
 
@@ -86,10 +79,13 @@ namespace Sting.Immutable
         /// </returns>
         public bool Contains(in ImmutablePoint point)
         {
-            if (IsEmpty) return false;
+            if (IsEmpty)
+            {
+                return false;
+            }
 
-            var x = point.X - X;
-            var y = point.Y - Y;
+            double x = point.X - X;
+            double y = point.Y - Y;
 
             return 0 <= x && x <= Width && 0 <= y && y <= Height;
         }
