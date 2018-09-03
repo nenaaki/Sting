@@ -87,15 +87,15 @@ namespace Sting.Benchmark
         private readonly int[] _hashcodes = new int[10000];
 
         [Benchmark]
-        public void ToRefListToArray()
+        public void ToRefArray()
         {
-            var items = _guids.ToReferenceList().ToArray();
+            var items = _guids.ToRefArray();
 
-            //int idx = 0;
-            //foreach (var guid in items)
-            //{
-            //    _hashcodes[idx++] = guid.GetHashCode();
-            //}
+            int idx = 0;
+            foreach (ref var guid in items)
+            {
+                _hashcodes[idx++] = guid.GetHashCode();
+            }
         }
 
         [Benchmark]
@@ -103,11 +103,11 @@ namespace Sting.Benchmark
         {
             var items = _guids.ToReferenceList();
 
-            //int idx = 0;
-            //foreach (ref var guid in items)
-            //{
-            //    _hashcodes[idx++] = guid.GetHashCode();
-            //}
+            int idx = 0;
+            foreach (ref var guid in items)
+            {
+                _hashcodes[idx++] = guid.GetHashCode();
+            }
         }
 
         [Benchmark]
@@ -115,11 +115,11 @@ namespace Sting.Benchmark
         {
             var items = _guids.ToArray();
 
-            //int idx = 0;
-            //foreach (var guid in items)
-            //{
-            //    _hashcodes[idx++] = guid.GetHashCode();
-            //}
+            int idx = 0;
+            foreach (var guid in items)
+            {
+                _hashcodes[idx++] = guid.GetHashCode();
+            }
         }
 
         [Benchmark]
@@ -127,11 +127,11 @@ namespace Sting.Benchmark
         {
             var items = _guids.ToList();
 
-            //int idx = 0;
-            //foreach (var guid in items)
-            //{
-            //    _hashcodes[idx++] = guid.GetHashCode();
-            //}
+            int idx = 0;
+            foreach (var guid in items)
+            {
+                _hashcodes[idx++] = guid.GetHashCode();
+            }
         }
 
 #endif
