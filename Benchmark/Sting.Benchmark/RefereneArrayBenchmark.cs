@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 using BenchmarkDotNet.Attributes;
+using Sting.Immutable;
 
 namespace Sting.Benchmark
 {
     public class RefereneArrayBenchmark
     {
-        private readonly Rect[] _rects = new Rect[1000];
+        //        private readonly Rect[] _rects = new Rect[1000];
 #if false
 
         private readonly double[] result = new double[10000];
@@ -59,24 +59,20 @@ namespace Sting.Benchmark
 
 #if true
 
-        private class GuidGenerator : IEnumerable<Immutable.Guid>
+        private class GuidGenerator : IEnumerable<Guid>
         {
-            private readonly System.Guid[] _guids = new System.Guid[10000];
+            private readonly Guid[] _guids = new Guid[10000];
 
             public GuidGenerator()
             {
                 for (int idx = 0; idx < _guids.Length; idx++)
-                {
                     _guids[idx] = System.Guid.NewGuid();
-                }
             }
 
-            public IEnumerator<Immutable.Guid> GetEnumerator()
+            public IEnumerator<Guid> GetEnumerator()
             {
                 for (int idx = 0; idx < _guids.Length; idx++)
-                {
-                    yield return new Immutable.Guid(_guids[idx]);
-                }
+                    yield return _guids[idx];
             }
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
@@ -87,15 +83,15 @@ namespace Sting.Benchmark
         private readonly int[] _hashcodes = new int[10000];
 
         [Benchmark]
-        public void ToRefArray()
+        public void ToArrayFast()
         {
-            var items = _guids.ToRefArray();
+            var items = _guids.ToArrayFast();
 
-            int idx = 0;
-            foreach (ref var guid in items)
-            {
-                _hashcodes[idx++] = guid.GetHashCode();
-            }
+            //int idx = 0;
+            //foreach (ref var guid in items)
+            //{
+            //    _hashcodes[idx++] = guid.GetHashCode();
+            //}
         }
 
         [Benchmark]
@@ -103,11 +99,11 @@ namespace Sting.Benchmark
         {
             var items = _guids.ToReferenceList();
 
-            int idx = 0;
-            foreach (ref var guid in items)
-            {
-                _hashcodes[idx++] = guid.GetHashCode();
-            }
+            //int idx = 0;
+            //foreach (ref var guid in items)
+            //{
+            //    _hashcodes[idx++] = guid.GetHashCode();
+            //}
         }
 
         [Benchmark]
@@ -115,11 +111,11 @@ namespace Sting.Benchmark
         {
             var items = _guids.ToArray();
 
-            int idx = 0;
-            foreach (var guid in items)
-            {
-                _hashcodes[idx++] = guid.GetHashCode();
-            }
+            //int idx = 0;
+            //foreach (var guid in items)
+            //{
+            //    _hashcodes[idx++] = guid.GetHashCode();
+            //}
         }
 
         [Benchmark]
@@ -127,11 +123,11 @@ namespace Sting.Benchmark
         {
             var items = _guids.ToList();
 
-            int idx = 0;
-            foreach (var guid in items)
-            {
-                _hashcodes[idx++] = guid.GetHashCode();
-            }
+            //int idx = 0;
+            //foreach (var guid in items)
+            //{
+            //    _hashcodes[idx++] = guid.GetHashCode();
+            //}
         }
 
 #endif

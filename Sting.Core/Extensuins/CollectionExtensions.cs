@@ -11,55 +11,52 @@ namespace Sting
         public static ReferenceCollection<T> ToReferenceList<T>(this IEnumerable<T> items) where T : struct => new ReferenceCollection<T>(items);
 
         public static ReferenceArray<T> ToRefArray<T>(this IEnumerable<T> items)
-            where T : struct
-        {
-            return new Buffer<T>(items).ToArray().AsRef();
-        }
+            where T : struct => new Buffer<T>(items).ToArray().AsRef();
+
+        public static T[] ToArrayFast<T>(this IEnumerable<T> items)
+            where T : struct => new Buffer<T>(items).ToArray();
     }
 
     internal struct Buffer<TElement>
     {
-        private TElement[] _items;
-        private int _count;
+        private const int InitialBufferSize = 64;
+        private const int ExpandRatio = 4;
+        private readonly int _count;
+        private readonly TElement[] _items;
 
-        internal Buffer(IEnumerable<TElement> source)
+        public Buffer(IEnumerable<TElement> source)
         {
-            _items = null;
-            _count = 0;
             if (source is ICollection<TElement> collection)
             {
                 _count = collection.Count;
-                if (_count > 0)
+                if (_count == 0)
+                {
+                    _items = Array.Empty<TElement>();
+                }
+                else
                 {
                     _items = new TElement[_count];
                     collection.CopyTo(_items, 0);
                 }
-                else
-                    _items = Array.Empty<TElement>();
             }
             else
             {
-                _items = new TElement[64];
-                foreach (TElement item in source)
+                _count = 0;
+                _items = new TElement[InitialBufferSize];
+                foreach (var item in source)
                 {
                     if (_items.Length == _count)
-                    {
-                        Array.Resize(ref _items, _count * 2);
-                    }
+                        Array.Resize(ref _items, _count * ExpandRatio);
+
                     _items[_count++] = item;
                 }
                 if (_count == 0)
                     _items = Array.Empty<TElement>();
                 else if (_items.Length != _count)
-                {
                     Array.Resize(ref _items, _count);
-                }
             }
         }
 
-        internal TElement[] ToArray()
-        {
-            return _items;
-        }
+        public TElement[] ToArray() => _items;
     }
 }
