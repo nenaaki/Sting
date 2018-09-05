@@ -3,17 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sting", "Sting\Sting.csproj", "{713FF5B3-19B8-4108-BC07-E9E1249E7595}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sting.Controls", "Sting.Controls\Sting.Controls.csproj", "{EF2B2ECD-3848-4960-81E7-2C37C38E6283}"
+	ProjectSection(ProjectDependencies) = postProject
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595} = {713FF5B3-19B8-4108-BC07-E9E1249E7595}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmark", "Benchmark", "{FB8FB9E0-9A36-483E-ABA8-ADD2315668AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sting.Benchmark", "Benchmark\Sting.Benchmark\Sting.Benchmark.csproj", "{986C57BB-2BAA-4120-9F48-CD3E66C25FFC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595} = {713FF5B3-19B8-4108-BC07-E9E1249E7595}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{CF284B4A-DD48-4839-A7F2-2F4E974BF389}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Sting", "UnitTest\Test.Sting\Test.Sting.csproj", "{8C6186B3-8CBD-462D-8212-05FD73B197CA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595} = {713FF5B3-19B8-4108-BC07-E9E1249E7595}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{0C767F64-0161-4623-B84F-135CFA1D155F}"
 EndProject
@@ -22,6 +29,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexPanelDemo", "Demo\FlexPanelDemo\FlexPanelDemo.csproj", "{A06D935B-3ADD-48F6-A114-5D48ACB85EB9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sting.Core", "Sting.Core\Sting.Core.csproj", "{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sting.Wpf", "Sting.Wpf\Sting.Wpf.csproj", "{713FF5B3-19B8-4108-BC07-E9E1249E7595}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,24 +45,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|Any CPU.ActiveCfg = Azure Debug|Any CPU
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|Any CPU.Build.0 = Azure Debug|Any CPU
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|x64.ActiveCfg = Azure Debug|x64
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|x64.Build.0 = Azure Debug|x64
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|x86.ActiveCfg = Azure Debug|x86
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|x86.Build.0 = Azure Debug|x86
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|x64.ActiveCfg = Debug|x64
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|x64.Build.0 = Debug|x64
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|x86.ActiveCfg = Debug|x86
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|x86.Build.0 = Debug|x86
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|Any CPU.Build.0 = Release|Any CPU
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|x64.ActiveCfg = Release|x64
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|x64.Build.0 = Release|x64
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|x86.ActiveCfg = Release|x86
-		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|x86.Build.0 = Release|x86
 		{EF2B2ECD-3848-4960-81E7-2C37C38E6283}.Azure Debug|Any CPU.ActiveCfg = Azure Debug|Any CPU
 		{EF2B2ECD-3848-4960-81E7-2C37C38E6283}.Azure Debug|Any CPU.Build.0 = Azure Debug|Any CPU
 		{EF2B2ECD-3848-4960-81E7-2C37C38E6283}.Azure Debug|x64.ActiveCfg = Azure Debug|x64
@@ -144,6 +135,24 @@ Global
 		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Release|x64.Build.0 = Release|Any CPU
 		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Release|x86.ActiveCfg = Release|Any CPU
 		{ED9ADDC2-D5A3-492C-9032-D8399320A9C9}.Release|x86.Build.0 = Release|Any CPU
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|Any CPU.ActiveCfg = Azure Debug|Any CPU
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|Any CPU.Build.0 = Azure Debug|Any CPU
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|x64.ActiveCfg = Azure Debug|x64
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|x64.Build.0 = Azure Debug|x64
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|x86.ActiveCfg = Azure Debug|x86
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Azure Debug|x86.Build.0 = Azure Debug|x86
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|x64.ActiveCfg = Debug|x64
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|x64.Build.0 = Debug|x64
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|x86.ActiveCfg = Debug|x86
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Debug|x86.Build.0 = Debug|x86
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|x64.ActiveCfg = Release|x64
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|x64.Build.0 = Release|x64
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|x86.ActiveCfg = Release|x86
+		{713FF5B3-19B8-4108-BC07-E9E1249E7595}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

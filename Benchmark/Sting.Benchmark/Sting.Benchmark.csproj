@@ -274,10 +274,6 @@
       <Project>{ed9addc2-d5a3-492c-9032-d8399320a9c9}</Project>
       <Name>Sting.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Sting\Sting.csproj">
-      <Project>{713ff5b3-19b8-4108-bc07-e9e1249e7595}</Project>
-      <Name>Sting</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />

@@ -1,5 +1,4 @@
 ﻿using Sting;
-
 using Sting.Controls;
 
 namespace FlexPanelDemo

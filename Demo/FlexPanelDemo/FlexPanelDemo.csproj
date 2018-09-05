@@ -102,9 +102,13 @@
       <Project>{ef2b2ecd-3848-4960-81e7-2c37c38e6283}</Project>
       <Name>Sting.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Sting\Sting.csproj">
+    <ProjectReference Include="..\..\Sting.Core\Sting.Core.csproj">
+      <Project>{ed9addc2-d5a3-492c-9032-d8399320a9c9}</Project>
+      <Name>Sting.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sting.Wpf\Sting.Wpf.csproj">
       <Project>{713ff5b3-19b8-4108-bc07-e9e1249e7595}</Project>
-      <Name>Sting</Name>
+      <Name>Sting.Wpf</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
