@@ -14,7 +14,7 @@ namespace Sting
             rect.Y.Is(2);
             rect.Width.Is(3);
             rect.Height.Is(4);
-            rect.Size.Is(new ImmutableSize(3, 4));
+            rect.Size.Is(new Immutable.Size(3, 4));
             rect.Location.Is(new Immutable.Point(1, 2));
             rect.Left.Is(1);
             rect.Top.Is(2);

@@ -30,7 +30,7 @@ namespace Sting.Immutable
 
         public Point Location => new Point(X, Y);
 
-        public ImmutableSize Size => new ImmutableSize(Width, Height);
+        public Size Size => new Size(Width, Height);
 
         public double Left => X;
 
@@ -54,7 +54,7 @@ namespace Sting.Immutable
 
         public Rect(double x, double y, double width, double height) => (X, Y, Width, Height) = (x, y, width, height);
 
-        public Rect(in Point point, in ImmutableSize size) => (X, Y, Width, Height) = (point.X, point.Y, size.Width, size.Height);
+        public Rect(in Point point, in Size size) => (X, Y, Width, Height) = (point.X, point.Y, size.Width, size.Height);
 
         public static implicit operator Rect(System.Windows.Rect source) => new Rect(source.X, source.Y, source.Width, source.Height);
 
