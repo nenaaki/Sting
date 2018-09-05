@@ -8,7 +8,7 @@ namespace Sting
         [TestMethod]
         public void ImmutableVectorLengthTest()
         {
-            var vector = new ImmutableVector(3, 4);
+            var vector = new Immutable.Vector(3, 4);
 
             vector.X.Is(3);
             vector.Y.Is(4);

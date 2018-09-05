@@ -157,10 +157,10 @@
     <Compile Include="IExpandable.cs" />
     <Compile Include="IHidable.cs" />
     <Compile Include="Immutable\Color32.cs" />
-    <Compile Include="Immutable\ImmutablePoint.cs" />
-    <Compile Include="Immutable\ImmutableRect.cs" />
-    <Compile Include="Immutable\ImmutableSize.cs" />
-    <Compile Include="Immutable\ImmutableVector.cs" />
+    <Compile Include="Immutable\Point.cs" />
+    <Compile Include="Immutable\Rect.cs" />
+    <Compile Include="Immutable\Size.cs" />
+    <Compile Include="Immutable\Vector.cs" />
     <Compile Include="IPanelViewModel.cs" />
     <Compile Include="NotifyObjectBase.cs" />
     <Compile Include="PubSub.cs" />

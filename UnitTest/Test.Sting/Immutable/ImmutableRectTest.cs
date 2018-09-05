@@ -15,15 +15,15 @@ namespace Sting
             rect.Width.Is(3);
             rect.Height.Is(4);
             rect.Size.Is(new ImmutableSize(3, 4));
-            rect.Location.Is(new ImmutablePoint(1, 2));
+            rect.Location.Is(new Immutable.Point(1, 2));
             rect.Left.Is(1);
             rect.Top.Is(2);
             rect.Right.Is(4);
             rect.Bottom.Is(6);
-            rect.LeftTop.Is(new ImmutablePoint(1, 2));
-            rect.RightTop.Is(new ImmutablePoint(4, 2));
-            rect.LeftBottom.Is(new ImmutablePoint(1, 6));
-            rect.RightBottom.Is(new ImmutablePoint(4, 6));
+            rect.LeftTop.Is(new Immutable.Point(1, 2));
+            rect.RightTop.Is(new Immutable.Point(4, 2));
+            rect.LeftBottom.Is(new Immutable.Point(1, 6));
+            rect.RightBottom.Is(new Immutable.Point(4, 6));
 
             Immutable.Rect.Create(100, 200, double.NaN, double.NaN).Is(new Immutable.Rect(100, 200, 0, 0));
             Immutable.Rect.Create(101, 201, 10, 20).Is(new Immutable.Rect(101, 201, 10, 20));
@@ -48,14 +48,14 @@ namespace Sting
         {
             var rect = new Immutable.Rect(100, 200, 300, 400);
 
-            rect.Contains(new ImmutablePoint(0, 0)).IsFalse();
-            rect.Contains(new ImmutablePoint(99, 199)).IsFalse();
-            rect.Contains(new ImmutablePoint(100, 200)).IsTrue();
-            rect.Contains(new ImmutablePoint(300, 300)).IsTrue();
-            rect.Contains(new ImmutablePoint(400, 600)).IsTrue();
-            rect.Contains(new ImmutablePoint(401, 601)).IsFalse();
+            rect.Contains(new Immutable.Point(0, 0)).IsFalse();
+            rect.Contains(new Immutable.Point(99, 199)).IsFalse();
+            rect.Contains(new Immutable.Point(100, 200)).IsTrue();
+            rect.Contains(new Immutable.Point(300, 300)).IsTrue();
+            rect.Contains(new Immutable.Point(400, 600)).IsTrue();
+            rect.Contains(new Immutable.Point(401, 601)).IsFalse();
 
-            rect.Contains(ImmutablePoint.Empty).IsFalse();
+            rect.Contains(Immutable.Point.Empty).IsFalse();
             rect.Contains(Immutable.Rect.Empty).IsFalse();
 
             rect.Contains(new Immutable.Rect(100, 200, 300, 400)).IsTrue();

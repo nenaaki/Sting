@@ -28,7 +28,7 @@ namespace Sting.Immutable
         /// </summary>
         public readonly double Height;
 
-        public ImmutablePoint Location => new ImmutablePoint(X, Y);
+        public Point Location => new Point(X, Y);
 
         public ImmutableSize Size => new ImmutableSize(Width, Height);
 
@@ -40,21 +40,21 @@ namespace Sting.Immutable
 
         public double Bottom => Y + Height;
 
-        public ImmutablePoint LeftTop => Location;
+        public Point LeftTop => Location;
 
-        public ImmutablePoint Center => new ImmutablePoint(X + Width / 2, Y + Height / 2);
+        public Point Center => new Point(X + Width / 2, Y + Height / 2);
 
-        public ImmutablePoint RightTop => new ImmutablePoint(Right, Y);
+        public Point RightTop => new Point(Right, Y);
 
-        public ImmutablePoint LeftBottom => new ImmutablePoint(X, Bottom);
+        public Point LeftBottom => new Point(X, Bottom);
 
-        public ImmutablePoint RightBottom => new ImmutablePoint(Right, Bottom);
+        public Point RightBottom => new Point(Right, Bottom);
 
         public bool IsEmpty => Width < 0 || Height < 0;
 
         public Rect(double x, double y, double width, double height) => (X, Y, Width, Height) = (x, y, width, height);
 
-        public Rect(in ImmutablePoint point, in ImmutableSize size) => (X, Y, Width, Height) = (point.X, point.Y, size.Width, size.Height);
+        public Rect(in Point point, in ImmutableSize size) => (X, Y, Width, Height) = (point.X, point.Y, size.Width, size.Height);
 
         public static implicit operator Rect(System.Windows.Rect source) => new Rect(source.X, source.Y, source.Width, source.Height);
 
@@ -77,7 +77,7 @@ namespace Sting.Immutable
         /// <returns>
         ///   <c>true</c> if [contains] [the specified point]; otherwise, <c>false</c>.
         /// </returns>
-        public bool Contains(in ImmutablePoint point)
+        public bool Contains(in Point point)
         {
             if (IsEmpty)
             {

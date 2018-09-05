@@ -37,13 +37,13 @@ namespace Sting.Controls.Panel
             Children.CollectionChanged += Children_CollectionChanged;
         }
 
-        public virtual ImmutablePoint GetChilldLocation(ControlBase child)
+        public virtual Immutable.Point GetChilldLocation(ControlBase child)
         {
             if (ChildRectDic.TryGetValue(child, out Immutable.Rect rect))
             {
                 return rect.Location;
             }
-            return ImmutablePoint.Empty;
+            return Immutable.Point.Empty;
         }
 
         /// <summary>

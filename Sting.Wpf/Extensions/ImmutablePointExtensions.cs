@@ -4,10 +4,10 @@ namespace Sting.Extensions
 {
     public static class ImmutablePointExtensions
     {
-        public static ImmutablePoint Offset(in this ImmutablePoint point, double x, double y)
-            => new ImmutablePoint(point.X + x, point.Y + y);
+        public static Immutable.Point Offset(in this Immutable.Point point, double x, double y)
+            => new Immutable.Point(point.X + x, point.Y + y);
 
-        public static ImmutablePoint Round(in this ImmutablePoint point)
-            => new ImmutablePoint(Math.Round(point.X), Math.Round(point.Y));
+        public static Immutable.Point Round(in this Immutable.Point point)
+            => new Immutable.Point(Math.Round(point.X), Math.Round(point.Y));
     }
 }

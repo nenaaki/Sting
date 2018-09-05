@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Media;
 
 namespace Sting.Controls.Panel.Media
 {
     public class CachedSolidColorBrush : ISolidColorBrush
     {
-        private static Dictionary<Color32, SolidColorBrush> Brushes { get; } = new Dictionary<Color32, SolidColorBrush>();
+        private static Dictionary<Immutable.Color32, SolidColorBrush> Brushes { get; } = new Dictionary<Immutable.Color32, SolidColorBrush>();
 
         public static void Clear()
         {
             Brushes.Clear();
         }
 
-        public Color32 Color { get; set; }
+        public Immutable.Color32 Color { get; set; }
 
         public Brush GetBrush(bool freezing = true)
         {

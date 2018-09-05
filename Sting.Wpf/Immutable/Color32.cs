@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 
-namespace Sting
+namespace Sting.Immutable
 {
     public readonly struct Color32
     {

@@ -10,7 +10,7 @@ namespace Sting.Immutable
         public static Rect Offset(in this Rect rect, double x, double y)
             => new Rect(rect.X + x, rect.Y + y, rect.Width, rect.Height);
 
-        public static Rect ToRect(in this ValueTuple<ImmutablePoint, ImmutableSize> source)
+        public static Rect ToRect(in this ValueTuple<Point, ImmutableSize> source)
             => new Rect(source.Item1.X, source.Item1.Y, source.Item2.Width, source.Item2.Width);
     }
 }
