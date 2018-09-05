@@ -15,6 +15,26 @@ namespace Sting
 
         public static T[] ToArrayFast<T>(this IEnumerable<T> items)
             where T : struct => new Buffer<T>(items).ToArray();
+
+        public static T[] ToArraySimple<T>(this IEnumerable<T> items)
+            where T : struct
+        {
+            using (var enumerator = items.GetEnumerator())
+            {
+                int count = 0;
+                while (enumerator.MoveNext())
+                    count++;
+
+                enumerator.Reset();
+                var array = new T[count];
+
+                int idx = 0;
+                while (enumerator.MoveNext())
+                    array[idx++] = enumerator.Current;
+
+                return array;
+            }
+        }
     }
 
     internal struct Buffer<TElement>
